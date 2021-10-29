@@ -4,13 +4,24 @@
 	<meta charset="UTF-8">
 	<title>Photo Gallery</title>
 	<link rel="stylesheet" href="style.css">
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src = "script.js"></script>
+	<script>
+    		$.ajax({
+        	url:"https://api.nasa.gov/planetary/apod?api_key=XVFfd66I3fQSFd0XWA5ltw9aoqXwP0JEKKCzvqJY",
+        	success: function(apod){
+            document.getElementById("NASA").src= "+apod.url+"
+        }
+    })
+
+	</script>
 </head>
 <body>
 	
 	<div id = "image">
 		Hover over an image below to display here.
 	</div>
+	<img class = "preview" id = "NASA" alt="Nasa Picture of the Day" src = "" onmouseover = "apod" onmouseout="unDo()">
 	<img class = "preview" alt = "Get" src = "./assets/image-launch-vehicle-portrait.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
 	<img class = "preview" alt = "1" src = "./assets/background-destination-tablet.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
 	<img class = "preview" alt = "2" src = "./assets/background-home-desktop.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
